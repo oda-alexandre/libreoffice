@@ -1,25 +1,44 @@
-# **<center>LibreOffice</center>**
+# LIBREOFFICE
+
+![libreoffice](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/logo-libreoffice.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/logo-docker.png)
 
 
-**INTRODUCTION**
+## INDEX
 
-*libreoffice https://fr.libreoffice.org/ via docker*
-
-
-**PREREQUIS**
-
-*Installer docker*
-
-
-**INSTALLATION**
-
-copier/coller dans un terminal :
-
-    mkdir $HOME/libreoffice
-
-    docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}/libreoffice:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
+- [Build Docker](#BUILD)
+- [Introduction](#INTRODUCTION)
+- [Prerequis](#PREREQUIS)
+- [Installation](#INSTALLATION)
+- [License](#LICENSE)
 
 
-**LICENSE**
+## BUILD DOCKER
+
+[![libreoffice docker build](https://img.shields.io/docker/build/alexandreoda/libreoffice.svg)](https://hub.docker.com/r/alexandreoda/libreoffice)
+
+
+## INTRODUCTION
+
+Ce repository contient le fichier Dockerfile de [Libreoffice](https://www.libreoffice.org/) pour [Docker](https://www.docker.com), mis à jour automatiquement dans le [Docker Hub](https://hub.docker.com/r/alexandreoda/libreoffice/) public.
+
+
+## PREREQUIS
+
+Installer [Docker](https://www.docker.com)
+
+
+## INSTALLATION
+
+```
+mkdir $HOME/libreoffice
+```
+```
+docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}/libreoffice:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
+```
+
+L'option `--network none` sert à déconnecter le réseau internet afin d'éviter la télémétrie.
+
+
+## LICENSE
 
 [![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/libreoffice/blob/master/LICENSE)
