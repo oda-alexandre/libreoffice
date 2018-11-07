@@ -30,10 +30,7 @@ Installer [Docker](https://www.docker.com)
 ## INSTALLATION
 
 ```
-mkdir $HOME/libreoffice
-```
-```
-docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}/libreoffice:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
+docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
 ```
 
 L'option `--network none` sert à déconnecter le réseau internet afin d'éviter la télémétrie.
