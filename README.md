@@ -1,6 +1,6 @@
 # LIBREOFFICE
 
-![libreoffice](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/logo-libreoffice.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/logo-docker.png)
+![libreoffice](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/img/logo-libreoffice.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/libreoffice/master/img/logo-docker.png)
 
 
 ## INDEX
