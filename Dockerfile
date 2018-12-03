@@ -15,12 +15,16 @@ sudo \
 libreoffice \
 libreoffice-l10n-fr
 
-RUN apt-get --purge autoremove -y
-
 RUN useradd -d /home/libreoffice -m libreoffice && \
 passwd -d libreoffice && \
 adduser libreoffice sudo
 
 USER libreoffice
+
+RUN sudo apt-get --purge autoremove -y && \
+sudo apt-get autoclean -y && \
+sudo rm /etc/apt/sources.list && \
+sudo rm -rf /var/cache/apt/archives/* && \
+sudo rm -rf /var/lib/apt/lists/*
 
 CMD libreoffice
