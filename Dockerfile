@@ -8,14 +8,12 @@ ENV LANG fr
 
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS contrib non-free
 RUN rm -rf /etc/apt/sources.list && \
-cat <<EOF > /etc/apt/sources.list
-deb http://deb.debian.org/debian stretch main contrib non-free
-deb-src http://deb.debian.org/debian stretch main contrib non-free
-deb http://deb.debian.org/debian stretch-updates main contrib non-free
-deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
-deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free
-deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free
-EOF
+echo "deb http://deb.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list && \
+echo "deb-src http://deb.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list && \
+echo "deb http://deb.debian.org/debian stretch-updates main contrib non-free" >> /etc/apt/sources.list && \
+echo "deb-src http://deb.debian.org/debian stretch-updates main contrib non-free" >> /etc/apt/sources.list && \
+echo "deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
+echo "deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free" >> /etc/apt/sources.list
 
 # INSTALLATION DES PREREQUIS
 RUN apt-get update && apt-get install -y --no-install-recommends \
