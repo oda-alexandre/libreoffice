@@ -1,6 +1,10 @@
 FROM debian:stretch-slim
 
-MAINTAINER https://oda-alexandre.github.io
+MAINTAINER https://oda-alexandre.com
+
+# VARIABLES
+ENV USER libreoffice
+ENV LANG fr
 
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS contrib non-free
 RUN rm -rf /etc/apt/sources.list && \
@@ -17,15 +21,18 @@ EOF
 RUN apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 libreoffice \
-libreoffice-l10n-fr
+libreoffice-l10n-${LANG} && \
 
 # AJOUT UTILISATEUR
-RUN useradd -d /home/libreoffice -m libreoffice && \
-passwd -d libreoffice && \
-adduser libreoffice sudo
+useradd -d /home/${USER} -m ${USER} && \
+passwd -d ${USER} && \
+adduser ${USER} sudo
 
 # SELECTION UTILISATEUR
-USER libreoffice
+USER ${USER}
+
+# SELECTION ESPACE DE TRAVAIL
+WORKDIR /home/${USER}
 
 # NETTOYAGE
 RUN sudo apt-get --purge autoremove -y && \
