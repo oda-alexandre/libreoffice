@@ -3,8 +3,8 @@ FROM debian:stretch-slim
 MAINTAINER https://oda-alexandre.com
 
 # VARIABLES
-ENV USER libreoffice
-ENV LANG fr
+ENV USER libreoffice \
+LANG fr
 
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS contrib non-free
 RUN rm -rf /etc/apt/sources.list && \
