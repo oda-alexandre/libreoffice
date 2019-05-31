@@ -6,7 +6,6 @@ MAINTAINER https://www.oda-alexandre.com/
 ENV USER libreoffice
 ENV LANG fr
 
-
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS contrib non-free
 RUN rm -rf /etc/apt/sources.list && \
 echo "deb http://deb.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list && \
