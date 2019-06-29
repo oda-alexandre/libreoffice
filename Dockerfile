@@ -1,12 +1,14 @@
+# IMAGE TO USE
 FROM debian:stretch-slim
 
+# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
 # VARIABLES
 ENV USER libreoffice
 ENV LANG fr
 
-# MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS contrib non-free
+# CHANGE OF FILE /etc/apt/sources.list WITH REPOS contrib non-free
 RUN rm -rf /etc/apt/sources.list && \
 echo "deb http://deb.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list && \
 echo "deb-src http://deb.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list && \
@@ -15,29 +17,29 @@ echo "deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
 echo "deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
 echo "deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free" >> /etc/apt/sources.list
 
-# INSTALLATION DES PREREQUIS
+# INSTALL PACKAGES
 RUN apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 libreoffice \
 libreoffice-l10n-${LANG} && \
 
-# AJOUT UTILISATEUR
+# ADD USER
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-# SELECTION UTILISATEUR
+# SELECT USER
 USER ${USER}
 
-# SELECTION ESPACE DE TRAVAIL
+# SELECT WORKING SPACE
 WORKDIR /home/${USER}
 
-# NETTOYAGE
+# CLEANING
 RUN sudo apt-get --purge autoremove -y && \
 sudo apt-get autoclean -y && \
 sudo rm /etc/apt/sources.list && \
 sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
 
-# COMMANDE AU DEMARRAGE DU CONTENEUR
-CMD libreoffice
+# START THE CONTAINER
+CMD libreoffice \
