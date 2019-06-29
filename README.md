@@ -43,7 +43,7 @@ Use [docker](https://www.docker.com)
 docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
 ```
 
-> The `--network none` option is used to disconnect the internet network to avoid MITM attacks, macros and telemetry.
+> The `--network none` option is used to disconnect the network to avoid MITM attacks, macros and telemetry.
 
 
 ## LICENSE
