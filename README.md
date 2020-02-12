@@ -1,6 +1,6 @@
 # LIBREOFFICE
 
-<img src="https://linagora.com/wp-content/uploads/2018/06/LibreOffice-logo-300x169.png" width="200" height="200"/>
+<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904461/libreoffice-logo.jpg" width="200" height="200"/>
 
 ## INDEX
 
