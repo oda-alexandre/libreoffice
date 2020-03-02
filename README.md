@@ -1,6 +1,6 @@
 # LIBREOFFICE
 
-<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904461/libreoffice-logo.jpg" width="200" height="200"/>
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904461/libreoffice-logo.jpg)
 
 ## INDEX
 
@@ -13,16 +13,13 @@
   - [INSTALL](#install)
   - [LICENSE](#license)
 
-
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/libreoffice/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/libreoffice/commits/master)
 
-
 ## FIRST UPDATE
 
 Date: 01-01-01
-
 
 ## INTRODUCTION
 
@@ -38,18 +35,15 @@ Automatically updated on :
 
 - [docker hub public](https://hub.docker.com/r/alexandreoda/libreoffice/)
 
-
 ## PREREQUISITES
 
 Use [docker](https://www.docker.com)
-
 
 ## INSTALL
 
 ```docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice```
 
 > The `--network none` option is used to disconnect the network to avoid MITM attacks, macros and telemetry.
-
 
 ## LICENSE
 
