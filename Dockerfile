@@ -18,7 +18,7 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt-get update && apt-get install -y --no-install-recommends \
   sudo \
   libreoffice \
-  \
+  && \
   echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
   apt-get --purge autoremove -y && \
   apt-get autoclean -y && \
