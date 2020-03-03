@@ -4,7 +4,6 @@ LABEL authors https://www.oda-alexandre.com
 
 ENV USER libreoffice
 ENV HOME /home/${USER}
-ENV LOCALES fr_FR.UTF-8
 ENV LANG_l10n fr
 
 RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
@@ -19,12 +18,8 @@ RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \0
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt-get update && apt-get install -y --no-install-recommends \
   sudo \
-  locales \
   libreoffice \
   libreoffice-l10n-${LANG_l10n}
-
-RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m' && \
-  locale-gen ${LOCALES}
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
   useradd -d ${HOME} -m ${USER} && \
