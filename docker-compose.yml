@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  libreoffice:
+    container_name: libreoffice
+    image: alexandreoda/libreoffice
+    restart: no
+    network_mode: none
+    privileged: false
+    environment:
+      - DISPLAY
+    volumes:
+      - "${HOME}:/home/libreoffice"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/"

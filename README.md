@@ -10,6 +10,8 @@
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
+    - [DOCKER RUN](#docker-run)
+    - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
 
 ## BADGES
@@ -24,7 +26,7 @@ Docker image of :
 
 Continuous integration on :
 
-- [gitlab](https://gitlab.com/oda-alexandre/android-studio/pipelines)
+- [gitlab pipelines](https://gitlab.com/oda-alexandre/android-studio/pipelines)
 
 Automatically updated on :
 
@@ -36,9 +38,29 @@ Use [docker](https://www.docker.com)
 
 ## INSTALL
 
-```docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice```
+### DOCKER RUN
 
-> The `--network none` option is used to disconnect the network to avoid MITM attacks, macros and telemetry.
+```docker run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
+```
+
+### DOCKER COMPOSE
+
+```yml
+version: "3.7"
+
+services:
+  libreoffice:
+    container_name: libreoffice
+    image: alexandreoda/libreoffice
+    restart: no
+    network_mode: none
+    privileged: false
+    environment:
+      - DISPLAY
+    volumes:
+      - "${HOME}:/home/libreoffice"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/"
+```
 
 ## LICENSE
 
