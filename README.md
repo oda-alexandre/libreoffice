@@ -41,7 +41,13 @@ Use [docker](https://www.docker.com)
 ### DOCKER RUN
 
 ```\
-docker  run -d --name libreoffice -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v ${HOME}:/home/libreoffice -e DISPLAY --network none alexandreoda/libreoffice
+docker run -d \
+--name libreoffice \
+-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
+-v ${HOME}:/home/libreoffice \
+-e DISPLAY \
+--network none \
+alexandreoda/libreoffice
 ```
 
 ### DOCKER COMPOSE
